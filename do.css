@@ -1,0 +1,87 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightgray;
+}
+
+
+
+
+
+.board {
+  
+  /*  
+  Make the board a grid container, then use grid-temp-col to 
+  define the number and size of the column(8) in a grid layout.
+
+  1fr is space that is dedicvated for rows & columns. You need this to create
+  equal parts and form an actual grid
+  */
+
+
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 80vmin;  
+  height: 80vmin; 
+  padding: 2vmin; 
+  box-sizing: border-box; 
+
+  
+ 
+}
+
+
+.square {
+  width: 100%;
+  height: 100%;
+  background: black; /* Default color */
+}
+
+/* Default color */
+.square:nth-child(odd) {
+  background: white;
+}
+
+
+/* Use 'nth-child' to apply styles conditionally 
+based on  order in the HTML. 
+
+targets every odd square, turns to white:  */
+
+
+
+/* 
+We use 16n bc we know it will selct the blocks evenly for 64 blocks. The + numbers
+are targeting specifc rows within the 16 selected block to change their background.
+
+should not be needed but .square  above does not check all conditions alone.
+*/ 
+
+.board div:nth-child(16n+9), 
+.board div:nth-child(16n+11),
+.board div:nth-child(16n+13),
+.board div:nth-child(16n+15)
+{
+  background: black;
+}
+.board div:nth-child(16n+6)
+.board div:nth-child(16n+8),
+.board div:nth-child(16n+10),
+.board div:nth-child(16n+12),
+.board div:nth-child(16n+14),
+.board div:nth-child(16n+16) {
+  background: white;
+}
+
+
+
+
+/* Theme: Grids are importnat in CSS Styling. Used for:
+Website Layout
+DashBoard UI
+Form
+Product Page
+*/
